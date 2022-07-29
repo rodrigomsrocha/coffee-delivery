@@ -21,14 +21,13 @@
       align-items: center;
       font-size: 0.875rem;
     }
-    button {
+    a {
       padding: calc(0.5rem - 1px);
       background: var(--yellow-light);
       color: var(--yellow-dark);
       border: 1px solid transparent;
       border-radius: 6px;
       font-size: 0;
-      cursor: pointer;
       transition: all 0.2s;
       &:hover {
         border: 1px solid var(--yellow);
