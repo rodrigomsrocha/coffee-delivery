@@ -4,7 +4,7 @@ import styles from './DefaultLayout.module.scss';
 
 export function DefaultLayout() {
   return (
-    <div className={styles.container}>
+    <div className={styles.layout}>
       <Header />
       <Outlet />
     </div>

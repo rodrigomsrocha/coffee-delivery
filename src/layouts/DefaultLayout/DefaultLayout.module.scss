@@ -1,5 +1,4 @@
-.container {
-  max-width: 68rem;
-  padding: 0 1rem;
-  margin: 0 auto;
+.layout {
+  display: flex;
+  flex-direction: column;
 }

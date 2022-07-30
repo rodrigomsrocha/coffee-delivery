@@ -5,17 +5,19 @@ import styles from './Header.module.scss';
 
 export function Header() {
   return (
-    <header className={styles.header}>
-      <img src={logo} />
-      <nav>
-        <span>
-          <MapPin size={22} weight="fill" />
-          Porto Alegre, RS
-        </span>
-        <NavLink to="/checkout">
-          <ShoppingCart size={22} weight="fill" />
-        </NavLink>
-      </nav>
-    </header>
+    <div className={styles.headerContainer}>
+      <header className={styles.header}>
+        <img src={logo} />
+        <nav>
+          <span>
+            <MapPin size={22} weight="fill" />
+            Porto Alegre, RS
+          </span>
+          <NavLink to="/checkout">
+            <ShoppingCart size={22} weight="fill" />
+          </NavLink>
+        </nav>
+      </header>
+    </div>
   );
 }
