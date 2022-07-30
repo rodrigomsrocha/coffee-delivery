@@ -1,0 +1,12 @@
+.homeContainer {
+  width: 72rem;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  .coffeesContainer {
+    display: flex;
+    column-gap: 2rem;
+    row-gap: 2.5rem;
+    padding: 3.375rem 0;
+    flex-wrap: wrap;
+  }
+}

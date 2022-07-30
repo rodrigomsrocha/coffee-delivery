@@ -1,5 +1,4 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react';
-import hero from '../../assets/hero.svg';
 import styles from './Intro.module.scss';
 
 export function Intro() {
@@ -36,7 +35,7 @@ export function Intro() {
             </div>
           </div>
         </div>
-        <img src={hero} />
+        <img src="/assets/hero.svg" />
       </main>
     </div>
   );

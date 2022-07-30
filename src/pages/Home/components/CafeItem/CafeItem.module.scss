@@ -1,0 +1,91 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1.25rem;
+  background: var(--base-card);
+  max-width: 16rem;
+  border-radius: 6px 36px 6px 36px;
+  .img {
+    width: 120px;
+    height: 120px;
+    margin-top: -2.75rem;
+    margin-bottom: 0.875rem;
+    display: block;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    strong {
+      padding: 0.25rem 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--yellow-light);
+      border-radius: 100px;
+      color: var(--yellow-dark);
+      text-transform: uppercase;
+      font-size: 0.625rem;
+    }
+  }
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 0.875rem;
+    text-align: center;
+    color: var(--base-label);
+  }
+  .purchaseContainer {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    > span {
+      font-size: 0.875rem;
+      strong {
+        font-size: 1.5rem;
+        font-family: 'Baloo 2';
+      }
+    }
+    .finishPurchase {
+      display: flex;
+      gap: 0.5rem;
+      .increaseControl {
+        background: var(--base-button);
+        padding: 0.5rem;
+        display: flex;
+        gap: 4px;
+        border-radius: 6px;
+        font-size: 1rem;
+        button {
+          border: 0;
+          background: transparent;
+          color: var(--purple);
+          font-size: 0;
+          transition: 0.2s;
+          cursor: pointer;
+          &:hover {
+            color: var(--purple-dark);
+          }
+        }
+      }
+      > button {
+        border: 0;
+        background: var(--purple);
+        padding: 0.5rem;
+        border-radius: 6px;
+        font-size: 0;
+        color: var(--white);
+        transition: 0.2s;
+        cursor: pointer;
+        &:hover {
+          background: var(--purple-dark);
+        }
+      }
+    }
+  }
+}

@@ -1,13 +1,12 @@
 import { MapPin, ShoppingCart } from 'phosphor-react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/logo.svg';
 import styles from './Header.module.scss';
 
 export function Header() {
   return (
     <div className={styles.headerContainer}>
       <header className={styles.header}>
-        <img src={logo} />
+        <img src="/assets/logo.svg" />
         <nav>
           <span>
             <MapPin size={22} weight="fill" />
