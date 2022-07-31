@@ -1,18 +1,35 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
-import styles from './CafeItem.module.scss';
+import styles from './CoffeeItem.module.scss';
 
-export function CafeItem() {
+interface CoffeeItemProps {
+  coffee: {
+    name: string;
+    description: string;
+    price: number;
+    tags: string[];
+    src: string;
+  };
+}
+
+export function CoffeeItem({ coffee }: CoffeeItemProps) {
   return (
     <div className={styles.item}>
-      <img src="/assets/latte.png" alt="" className={styles.img} />
+      <img src={coffee.src} alt="" className={styles.img} />
       <div className={styles.tags}>
-        <strong>Tradicional</strong>
+        {coffee.tags.map((tag) => (
+          <strong key={tag}>{tag}</strong>
+        ))}
       </div>
-      <h3>Expresso Tradicional</h3>
-      <p>O tradicional café feito com água quente e grãos moídos</p>
+      <h3>{coffee.name}</h3>
+      <p>{coffee.description}</p>
       <div className={styles.purchaseContainer}>
         <span>
-          R$ <strong>9,90</strong>
+          R${' '}
+          <strong>
+            {new Intl.NumberFormat('pt-BR', { style: 'decimal', minimumFractionDigits: 2 }).format(
+              coffee.price
+            )}
+          </strong>
         </span>
         <div className={styles.finishPurchase}>
           <div className={styles.increaseControl}>
