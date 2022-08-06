@@ -1,0 +1,62 @@
+.item {
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  .img {
+    width: 64px;
+    height: 64px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    .controls {
+      display: flex;
+      gap: 0.5rem;
+      .amountControls {
+        background: var(--base-button);
+        padding: 0.5rem;
+        display: flex;
+        gap: 4px;
+        border-radius: 6px;
+        font-size: 1rem;
+        button {
+          border: 0;
+          background: transparent;
+          color: var(--purple);
+          font-size: 0;
+          transition: 0.2s;
+          cursor: pointer;
+          &:hover {
+            color: var(--purple-dark);
+          }
+        }
+      }
+      > button {
+        border: 0;
+        background: var(--base-button);
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        color: var(--base-text);
+        cursor: pointer;
+        transition: 0.2s;
+        svg {
+          color: var(--purple);
+        }
+        &:hover {
+          background: var(--base-hover);
+        }
+      }
+    }
+  }
+  > strong {
+    margin-left: auto;
+  }
+  border-bottom: 1px solid var(--base-button);
+  & + .item {
+    padding: 1.5rem 0;
+  }
+}

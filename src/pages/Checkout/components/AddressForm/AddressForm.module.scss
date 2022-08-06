@@ -1,0 +1,44 @@
+.addressForm {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 1.5fr 60px;
+  column-gap: 0.75rem;
+  row-gap: 1rem;
+  label {
+    border-radius: 4px;
+    background: var(--base-button);
+    color: var(--base-text);
+    padding: calc(0.75rem - 1px);
+    border: 1px solid transparent;
+    input {
+      font-size: 0.875rem;
+      border: 0;
+      width: 100%;
+      background: inherit;
+      &::placeholder {
+        color: var(--base-label);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    &:nth-child(2) {
+      grid-column: 1 / -1;
+    }
+    &:nth-child(4) {
+      grid-column: 2 / -1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      span {
+        font-style: italic;
+        font-size: 0.75rem;
+      }
+      &:focus-within span {
+        display: none;
+      }
+    }
+    &:focus-within {
+      border: 1px solid var(--yellow-dark);
+    }
+  }
+}

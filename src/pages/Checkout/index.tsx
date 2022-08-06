@@ -1,14 +1,8 @@
-import {
-  Bank,
-  CreditCard,
-  CurrencyDollarSimple,
-  MapPinLine,
-  Minus,
-  Money,
-  Plus,
-  Trash
-} from 'phosphor-react';
+import { CurrencyDollarSimple, MapPinLine } from 'phosphor-react';
 import styles from './Checkout.module.scss';
+import { AddressForm } from './components/AddressForm';
+import { CoffeItem } from './components/CoffeeItem';
+import { PaymentForm } from './components/PaymentForm';
 
 export function Checkout() {
   return (
@@ -23,30 +17,7 @@ export function Checkout() {
               <p>Informe o endereço onde deseja receber seu pedido</p>
             </div>
           </header>
-          <div className={styles.addressForm}>
-            <label>
-              <input placeholder="CEP" type="text" />
-            </label>
-            <label>
-              <input placeholder="Rua" type="text" />
-            </label>
-            <label>
-              <input placeholder="Número" type="text" />
-            </label>
-            <label>
-              <input placeholder="Complemento" type="text" />
-              <span>Opicional</span>
-            </label>
-            <label>
-              <input placeholder="Bairro" type="text" />
-            </label>
-            <label>
-              <input placeholder="Cidade" type="text" />
-            </label>
-            <label>
-              <input placeholder="UF" type="text" />
-            </label>
-          </div>
+          <AddressForm />
         </form>
         <div className={styles.paymentFormContainer}>
           <header>
@@ -56,69 +27,13 @@ export function Checkout() {
               <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
             </div>
           </header>
-          <div className={styles.paymentMethods}>
-            <button>
-              <CreditCard size={16} />
-              CARTÃO DE CRÉDITO
-            </button>
-            <button>
-              <Bank size={16} />
-              CARTÃO DE DÉBITO
-            </button>
-            <button className={styles.active}>
-              <Money size={16} />
-              DINHEIRO
-            </button>
-          </div>
+          <PaymentForm />
         </div>
       </div>
       <div className={styles.purchasePreviewContainer}>
         <h3>Cafés selecionados</h3>
         <div className={styles.purchasePreview}>
-          <div className={styles.item}>
-            <img src="/assets/arabe.png" className={styles.img} />
-            <div className={styles.info}>
-              <span>Expresso Tradicional</span>
-              <div className={styles.controls}>
-                <div className={styles.amountControls}>
-                  <button>
-                    <Minus size={14} />
-                  </button>
-                  <span>0</span>
-                  <button>
-                    <Plus size={14} />
-                  </button>
-                </div>
-                <button>
-                  <Trash size={16} />
-                  REMOVER
-                </button>
-              </div>
-            </div>
-            <strong>R$ 9,90</strong>
-          </div>
-          <div className={styles.item}>
-            <img src="/assets/arabe.png" className={styles.img} />
-            <div className={styles.info}>
-              <span>Expresso Tradicional</span>
-              <div className={styles.controls}>
-                <div className={styles.amountControls}>
-                  <button>
-                    <Minus size={14} />
-                  </button>
-                  <span>0</span>
-                  <button>
-                    <Plus size={14} />
-                  </button>
-                </div>
-                <button>
-                  <Trash size={16} />
-                  REMOVER
-                </button>
-              </div>
-            </div>
-            <strong>R$ 9,90</strong>
-          </div>
+          <CoffeItem />
           <div className={styles.prices}>
             <div className={styles.labels}>
               <span>Total itens</span>
