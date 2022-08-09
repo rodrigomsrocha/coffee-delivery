@@ -1,15 +1,55 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { CurrencyDollarSimple, MapPinLine } from 'phosphor-react';
+import { FormProvider, useForm } from 'react-hook-form';
+import * as yup from 'yup';
 import styles from './Checkout.module.scss';
 import { AddressForm } from './components/AddressForm';
 import { CoffeItem } from './components/CoffeeItem';
 import { PaymentForm } from './components/PaymentForm';
 
+interface AddressFormData {
+  cep: string;
+  rua: string;
+  numero: number;
+  complemento?: string;
+  bairro: string;
+  cidade: string;
+  uf: string;
+}
+
+const schema = yup.object({
+  cep: yup
+    .string()
+    .required('CEP é obrigatório')
+    .matches(/^[0-9]{5}-[0-9]{3}$/, 'CEP Inválido'),
+  rua: yup.string().min(3).required('Rua é obrigatória'),
+  numero: yup.number().required('Número é obrigatório'),
+  complemento: yup.string(),
+  bairro: yup.string().required('Bairro é obrigatório'),
+  cidade: yup.string().required('Cidade é obrigatória'),
+  uf: yup
+    .string()
+    .required('UF é obrigatória')
+    .matches(
+      /^(\s*(AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO)?)$/
+    )
+});
+
 export function Checkout() {
+  const addressForm = useForm<AddressFormData>({
+    resolver: yupResolver(schema)
+  });
+  const { handleSubmit } = addressForm;
+
+  function handleConfirmRequest(data: AddressFormData) {
+    console.log(data);
+  }
+
   return (
-    <div className={styles.checkoutContainer}>
+    <form onSubmit={handleSubmit(handleConfirmRequest)} className={styles.checkoutContainer}>
       <div className={styles.formContainer}>
         <h3>Complete seu pedido</h3>
-        <form className={styles.addressFormContainer}>
+        <div className={styles.addressFormContainer}>
           <header>
             <MapPinLine size={22} />
             <div>
@@ -17,8 +57,10 @@ export function Checkout() {
               <p>Informe o endereço onde deseja receber seu pedido</p>
             </div>
           </header>
-          <AddressForm />
-        </form>
+          <FormProvider {...addressForm}>
+            <AddressForm />
+          </FormProvider>
+        </div>
         <div className={styles.paymentFormContainer}>
           <header>
             <CurrencyDollarSimple size={22} />
@@ -49,6 +91,6 @@ export function Checkout() {
           <button className={styles.confirmBtn}>CONFIRMAR PEDIDO</button>
         </div>
       </div>
-    </div>
+    </form>
   );
 }

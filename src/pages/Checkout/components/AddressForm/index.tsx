@@ -1,29 +1,32 @@
+import { useFormContext } from 'react-hook-form';
+import InputMask from 'react-input-mask';
 import styles from './AddressForm.module.scss';
 
 export function AddressForm() {
+  const { register } = useFormContext();
   return (
     <div className={styles.addressForm}>
       <label>
-        <input placeholder="CEP" type="text" />
+        <InputMask mask="99999-999" {...register('cep')} placeholder="CEP" type="text" />
       </label>
       <label>
-        <input placeholder="Rua" type="text" />
+        <input {...register('rua')} placeholder="Rua" type="text" />
       </label>
       <label>
-        <input placeholder="Número" type="text" />
+        <input {...register('numero')} placeholder="Número" type="text" />
       </label>
       <label>
-        <input placeholder="Complemento" type="text" />
+        <input {...register('complemento')} placeholder="Complemento" type="text" />
         <span>Opicional</span>
       </label>
       <label>
-        <input placeholder="Bairro" type="text" />
+        <input {...register('bairro')} placeholder="Bairro" type="text" />
       </label>
       <label>
-        <input placeholder="Cidade" type="text" />
+        <input {...register('cidade')} placeholder="Cidade" type="text" />
       </label>
       <label>
-        <input placeholder="UF" type="text" />
+        <input {...register('uf')} placeholder="UF" type="text" />
       </label>
     </div>
   );
